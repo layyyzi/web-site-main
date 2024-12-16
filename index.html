@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>cryptopress</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="html2" href="index2.html">
+    <script src="main.js"></script>
+
+    <meta name="description" content="Все про криптовалюту">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Stanislav Riabokon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+<button id="openLoginModal" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">
+    Sign In
+</button>
+<!-- Кнопка Login -->
+<div id="loginModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Login</h2>
+        <form action="/login" method="POST" class="space-y-4">
+            <!-- Поле Email -->
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+            </div>
+            <!-- Поле Password -->
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+            </div>
+            <!-- Кнопка входу -->
+            <button
+                    type="submit"
+                    class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">
+                Login
+            </button>
+        </form>
+        <!-- Кнопка закриття -->
+        <button id="closeLoginModal" class="mt-4 w-full text-gray-600 hover:text-gray-800">
+            Close
+        </button>
+    </div>
+</div>
+
+
+<div class="ticker">
+    <div class="ticker-items">
+        <div class="ticker-item">BTC $93884.57 🔻</div>
+        <div class="ticker-item">ETH $3468.79 🔼</div>
+        <div class="ticker-item">LTC $93.21 🔻</div>
+        <div class="ticker-item">XRP $1.42874 🔻</div>
+        <div class="ticker-item">DOGE $0.3945363 🔻</div>
+        <div class="ticker-item">BNB $525.12 🔼</div>
+        <div class="ticker-item">SOL $198.45 🔼</div>
+        <div class="ticker-item">DOT $34.78 🔻</div>
+        <div class="ticker-item">MATIC $1.56 🔼</div>
+        <div class="ticker-item">SHIB $0.000054 🔻</div>
+        <div class="ticker-item">AVAX $112.34 🔼</div>
+        <div class="ticker-item">LINK $25.89 🔻</div>
+        <div class="ticker-item">TON $6.34 🔼</div>
+        <div class="ticker-item">MEMEFI $0.00123 🔻</div>
+        <div class="ticker-item">CATS $0.000056 🔼</div>
+        <div class="ticker-item">CATI $0.094 🔻</div>
+    </div>
+</div>
+<header>
+    <nav class="navbar">
+        <div class="logo" onclick="location.reload()">CryptoPress</div>
+        <!-- Головна навігація -->
+        <ul class="nav-links">
+            <!-- Каталог криптовалют -->
+            <details class="catalog">
+                <summary>Інструменти для криптовалюти</summary>
+                <ul class="catalog-items">
+                    <!-- Популярні криптобіржі -->
+                    <li><strong>Популярні криптобіржі</strong></li>
+                    <li><a href="https://www.binance.com/ru-UA" target="_blank">Binance</a></li>
+                    <li><a href="https://www.bybit.com/ru-RU" target="_blank">Bybit</a></li>
+                    <li><a href="https://www.okx.com/ru" target="_blank">OKX</a></li>
+                    <li><a href="https://www.kraken.com" target="_blank">Kraken</a></li>
+                    <li><a href="https://www.coinbase.com" target="_blank">Coinbase</a></li>
+                    <li><a href="https://www.huobi.com" target="_blank">Huobi</a></li>
+                    <li><a href="https://www.bitfinex.com" target="_blank">Bitfinex</a></li>
+                    <li><a href="https://www.gate.io" target="_blank">Gate.io</a></li>
+                    <li><a href="https://www.kucoin.com" target="_blank">KuCoin</a></li>
+
+                    <!-- Гаманці для зберігання -->
+                    <li><strong>Криптогаманці</strong></li>
+                    <li><a href="https://metamask.io" target="_blank">MetaMask</a></li>
+                    <li><a href="https://trustwallet.com" target="_blank">Trust Wallet</a></li>
+                    <li><a href="https://www.exodus.com" target="_blank">Exodus</a></li>
+                    <li><a href="https://www.ledger.com" target="_blank">Ledger (апаратний гаманець)</a></li>
+                    <li><a href="https://trezor.io" target="_blank">Trezor (апаратний гаманець)</a></li>
+                    <li><a href="https://phantom.app" target="_blank">Phantom (Solana)</a></li>
+                    <li><a href="https://trustee.deals" target="_blank">Trustee Wallet</a></li>
+
+                    <!-- Інструменти для аналізу -->
+                    <li><strong>Інструменти для аналізу</strong></li>
+                    <li><a href="https://coinmarketcap.com" target="_blank">CoinMarketCap</a></li>
+                    <li><a href="https://www.coingecko.com" target="_blank">CoinGecko</a></li>
+                    <li><a href="https://dexscreener.com" target="_blank">Dex Screener</a></li>
+                    <li><a href="https://cryptowat.ch" target="_blank">CryptoWatch</a></li>
+                    <li><a href="https://www.tradingview.com" target="_blank">TradingView</a></li>
+
+                    <!-- Децентралізовані біржі -->
+                    <li><strong>Децентралізовані біржі (DEX)</strong></li>
+                    <li><a href="https://uniswap.org" target="_blank">Uniswap</a></li>
+                    <li><a href="https://pancakeswap.finance" target="_blank">PancakeSwap</a></li>
+                    <li><a href="https://sushi.com" target="_blank">SushiSwap</a></li>
+                    <li><a href="https://www.balancer.fi" target="_blank">Balancer</a></li>
+                    <li><a href="https://1inch.io" target="_blank">1inch</a></li>
+                    <li><a href="https://curve.fi" target="_blank">Curve Finance</a></li>
+
+                    <!-- Новини та аналітика -->
+                    <li><strong>Новини та аналітика</strong></li>
+                    <li><a href="https://cointelegraph.com" target="_blank">CoinTelegraph</a></li>
+                    <li><a href="https://decrypt.co" target="_blank">Decrypt</a></li>
+                    <li><a href="https://www.theblock.co" target="_blank">The Block</a></li>
+                    <li><a href="https://cryptoslate.com" target="_blank">CryptoSlate</a></li>
+                    <li><a href="https://bitcoinmagazine.com" target="_blank">Bitcoin Magazine</a></li>
+
+                    <!-- Платформи для стейкінгу -->
+                    <li><strong>Платформи для стейкінгу</strong></li>
+                    <li><a href="https://lido.fi" target="_blank">Lido</a></li>
+                    <li><a href="https://www.stake.fish" target="_blank">Stake.fish</a></li>
+                    <li><a href="https://www.kraken.com/features/staking" target="_blank">Kraken Staking</a></li>
+                    <li><a href="https://staking.binance.com" target="_blank">Binance Staking</a></li>
+                </ul>
+            </details>
+
+
+            <!-- Інші розділи -->
+            <li><a href="index2.html" target="_blank">Головна</a></li>
+            <li><a href="https://www.instagram.com/layyyzi_/" target="_blank">Огляди</a></li>
+            <li><a href="https://www.instagram.com/layyyzi_/" target="_blank">Рейтинги</a></li>
+            <li><a href="https://www.instagram.com/layyyzi_/" target="_blank">Новини</a></li>
+
+            <li><a href="https://www.instagram.com/layyyzi_/" target="_blank">Контакти</a></li>
+
+            <!-- Пошук -->
+            <li class="search-container">
+                <input
+                        type="text"
+                        class="search-input"
+                        placeholder="Search..."
+                        aria-label="Search through site content">
+                <i class="fas fa-search search-icon"></i>
+            </li>
+        </ul>
+
+        <!-- Меню для мобільних пристроїв -->
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+</header>
+
+
+
+<div id="authModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <main>
+            <section id="login-section" class="auth-section">
+                <h2>Login</h2>
+                <form action="/login" method="post">
+                    <fieldset>
+                        <legend>Authorization Form</legend>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                        <button type="submit">Login</button>
+                    </fieldset>
+                </form>
+            </section>
+            <section id="register-section" class="auth-section" style="display: none;">
+                <h2>Register</h2>
+                <form id="registerForm" onsubmit="handleRegister(event)">
+                    <fieldset>
+                        <legend>Registration Form</legend>
+                        <label for="reg-username">Username:</label>
+                        <input type="text" id="reg-username" name="username" required>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <label for="reg-password">Password:</label>
+                        <input type="password" id="reg-password" name="password" required>
+                        <button type="submit">Register</button>
+                    </fieldset>
+                </form>
+                <p id="confirmationMessage" style="display: none; color: green; font-weight: bold;">SMS with confirmation has been sent to your email.</p>
+            </section>
+        </main>
+    </div>
+</div>
+
+
+<section class="banner">
+    <h1> <strong class="neon"> Welcome to CryptoPress </strong> </h1>
+    <p> <strong  class="neon">Your go-to place for all things cryptocurrency.</strong></p>
+    <div class="btn-group">
+        <a href="index2.html" class="btn">Learn about crypto</a>
+        <a href="#" class="btn sign-in-btn" onclick="openLoginModal()">Sign In</a>
+        <a href="#" class="btn register-btn" onclick="openRegisterModal()">Register</a>
+    </div>
+</section>
+
+
+
+
+<div class="main2">
+    <div class="container">
+        <h2 class="title2">Що ви знайдете на цьому сайті</h2>
+        <div class="cards">
+            <div class="card">
+                <div class="icon"><i class="fa-solid fa-newspaper"></i></div>
+                <h3 class="card-title">Криптовалютні новини</h3>
+                <p class="card-text">Отримуйте останні новини та аналітику про криптовалюти, дізнавайтеся про нові проекти та тенденції на ринку криптовалют.</p>
+            </div>
+            <div class="card">
+                <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h3 class="card-title">Аналітика ринку</h3>
+                <p class="card-text">Наші експерти надають глибокий аналіз ринку криптовалют, допомагаючи вам приймати обґрунтовані інвестиційні рішення.</p>
+            </div>
+            <div class="card">
+                <div class="icon"><i class="fa-regular fa-lightbulb"></i></div>
+                <h3 class="card-title">Інвестиційні поради</h3>
+                <p class="card-text">Дізнайтеся про найкращі стратегії інвестування в криптовалюти та отримайте поради від провідних експертів галузі.</p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+        <p class="text-other">криптовалюта в міжнародному ринку.</p>
+
+<aside class="sidebar">
+    <nav>
+
+        <ul>
+
+                <li><h2>Види криптобірж: </h2></li>
+                <li><a href="https://www.bybit.com/ru-RU" target="_blank">→ Bybit </a></li>
+                <li><a href="https://www.binance.com/ru-UA" target="_blank" >→ Binance</a></li>
+                <li><a href="https://www.okx.com/ru" target="_blank" >→ OKX</a></li>
+        </ul>
+
+    </nav>
+</aside>
+
+<main>
+    <section class="news">
+        <h2><strong> Про біржі: </strong></h2>
+        <article>
+            <h3>Bybit</h3>
+            <p>Це криптовалютна біржа, яка пропонує торгівлю криптовалютами з кредитним плечем. Компанію Bybit засновано
+                у 2018 році зі штаб-квартирою в Сінгапурі.</p>
+        </article>
+        <article>
+            <h3>Binance</h3>
+            <p>Це криптовалютна біржа, яка пропонує торгівлю криптовалютами з кредитним плечем. Binance була заснована в
+                2017 році зі штаб-квартирою на Мальті.</p>
+        </article>
+        <article>
+            <h3>OKX</h3>
+            <p>Це криптовалютна біржа, яка пропонує торгівлю криптовалютами з кредитним плечем. OKX була заснована в
+                2017 році зі штаб-квартирою в Гонконзі.</p>
+        </article>
+
+
+    </section>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Bybit</th>
+            <th>Binance</th>
+            <th>OKX</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2018</td>
+            <td>2017</td>
+            <td>2017</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td>Сингапур</td>
+            <td>Мальта</td>
+            <td>Гонконг</td>
+        </tr>
+        </tfoot>
+
+    </table>
+</main>
+
+<footer2>
+    <div class="image-caption">
+
+        <p>Приклад графіку який використвується на біржах, щоб розуміти як рухалась ціна</p>
+        <img src="images/images%204.png" alt="Binance" width="600" height="250">
+    </div>
+    <p class="text-default"> В світі криптовалюти, по цей час дуже набирають обертів телеграм боти в додатку telegram так звані "тапалки" і ось приклад 8 тапалок в який багато мільйонів користувачів:   </p>
+</footer2>
+
+</div>
+<footer>
+    <div class="footer-info">
+        <h1>CryptoPress</h1>
+
+        <p>&copy; 2024 Stanislav Riabokon. Всі права захищені.</p>
+        <p> Follow us on instagram and telegram </p>
+        <a href="#" onclick="scrollToTop()">Політика конфеденційності</a></li>
+
+    </div>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/layyyzi_/" target="_blank">
+            <img src="images/insta2.png" alt="Instagram">
+        </a>
+        <a href="https://t.me/Layyyzi" target="_blank">
+            <img src="images/telegram.png" alt="Telegram">
+        </a></div>
+    </footer>
+</body>
+</html>
